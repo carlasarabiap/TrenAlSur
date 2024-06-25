@@ -1,0 +1,7 @@
+Model\UsuarioDAO.class
+Controller\Controlador.class
+com\carla\trenalsurparte1\JakartaRestConfiguration.class
+Controller\Validar.class
+com\carla\trenalsurparte1\resources\JakartaEE10Resource.class
+Model\Usuario.class
+config\Conexion.class

@@ -1,0 +1,286 @@
+/* Colors */
+:root {
+  --color-default: #212529;
+  --color-primary: #8ccca4;
+  --color-secondary: #37373f;
+}
+
+/*--------------------------------------------------------------
+# General
+--------------------------------------------------------------*/
+body {
+  font-family: var(--font-default);
+  color: var(--color-default);
+  background-image: url(imagenes/imgBanner/fondo2.jpg);
+}
+
+/*HEADER*/
+header>div>a {
+  text-decoration: none;
+  color: #212529;
+}
+
+.contenedorElementosNavbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: var(--color-primary);
+}
+
+/* media query navbar */
+@media screen and (max-width: 640px) {
+  .contenedorElementosNavbar {
+    flex-direction: column;
+  }
+}
+
+/* media query navbar */
+
+
+.contenedorItems {
+  display: flex;
+  padding-top: 1rem;
+  transition: all 400ms ease;
+}
+
+.contenedorItems li {
+  padding: 8px;
+  margin-right: 8px;
+}
+
+.contenedorItems li:hover {
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3%);
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.login {
+  padding: 8px;
+}
+
+.login:hover {
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3%);
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.logo {
+  -webkit-transition: 1s linear;
+  transition: 1s linear;
+}
+
+.logo:hover {
+  -webkit-transform: rotate(360deg);
+  transform: rotate(360deg);
+  color: #fff;
+}
+
+nav>ul>li {
+  padding-right: 3rem;
+  list-style: none;
+  text-decoration: none;
+}
+
+nav>ul>li>a {
+  text-decoration: none;
+  color: var(--color-default);
+}
+
+button>a {
+  text-decoration: none;
+  color: var(--color-default);
+}
+
+/* END HEADER*/
+
+/*MAIN*/
+.contenedorBanner {
+  display: flex;
+  background-color: var(--color-primary);
+  margin: 2rem;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* media query banner */
+@media only screen and (max-width: 1200px) {
+  .contenedorBanner {
+    display: block;
+    border-radius: 8px;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .contenedorImgBanner {
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+  }
+}
+
+/* media query banner */
+
+.contenedorTextoBanner {
+  padding: 16px;
+  text-align: justify;
+}
+
+.contenedorTextoBanner h3 {
+  padding: 16px;
+  text-align: center;
+}
+
+.contenedorImgBanner img {
+  border-radius: 8px;
+}
+
+.contenedorImgBanner {
+  display: flex;
+}
+
+.contenedorTarjetas {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.tarjeta {
+  width: 325px;
+  background-color: var(--color-primary);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0px 10px 4px rgba(0, 0, 0, 0.2);
+  margin: 20px;
+  transition: all 400ms ease;
+}
+
+.tarjeta:hover {
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3%);
+
+}
+
+.tarjeta img {
+  width: 100%;
+  height: auto;
+}
+
+.contenidoTarjeta {
+  padding: 16px;
+}
+
+.contenidotarjeta h3 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.contenidotarjeta p {
+  counter-reset: var(--color-secondary);
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.contenidotarjeta .btn {
+  display: inline-block;
+  padding: 8px 16px;
+  background-color: var(--color-secondary);
+  text-decoration: none;
+  border-radius: 4px;
+  margin-top: 16px;
+}
+
+/*END MAIN*/
+
+
+/*FOOTER*/
+.contenedorFooter {
+  background-color: var(--color-primary);
+  margin: 2rem;
+  padding: 16px;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+/* media query footer */
+@media only screen and (max-width: 1200px) {
+  .contenedorFooter {
+    display: block;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .textoFooter {
+    text-align: center;
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .mapa {
+    text-align: center;
+    overflow: hidden;
+  }
+}
+
+/* media query footer */
+
+
+/*FOOTER*/
+
+/*CSS FORMULARIOS*/
+
+/*FORMULARIO REGISTRO*/
+.seccionFormularioRegistro {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.formularioRegistro {
+  background-color: var(--color-primary);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.formularioRegistro div {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+}
+
+/*END FORMULARIO REGISTRO*/
+
+/*FORMULARIO LOGIN*/
+.seccionFormularioLogin {
+  padding: 2rem;
+  display: flex;
+  justify-content: center;
+}
+
+.formularioLogin {
+  background-color: var(--color-primary);
+  padding: 1rem;
+  border-radius: 8px;
+}
+
+.formularioLogin div {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+}
+
+.formularioLogin a {
+  text-decoration: none;
+  color: #212529;
+  text-align: center;
+}
+
+/*END FORMULARIO LOGIN*/
+
+
+/*FORMULARIOS*/
