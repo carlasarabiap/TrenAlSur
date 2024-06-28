@@ -4,6 +4,9 @@ import config.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -73,6 +76,9 @@ public class UsuarioDAO {
                 ps.setString(6, us.getFechaNac());
                 ps.setString(7, us.getPais());
                 ps.executeUpdate();
+                // Generar JSON después de agregar
+                List<Usuario> usuarios = this.listar();
+                generarJson(usuarios);
             } catch (Exception e) {
                
             }
@@ -113,6 +119,10 @@ public class UsuarioDAO {
                 ps.setString(7, us.getPais());
                 ps.setInt(8, us.getId());
                 ps.executeUpdate();
+                
+                // Generar JSON después de actualizar
+                List<Usuario> usuarios = this.listar();
+                generarJson(usuarios);
             } catch (Exception e) {
                
             }
@@ -125,9 +135,39 @@ public class UsuarioDAO {
                 con=cn.Conexion();
                 ps=con.prepareStatement(sql);
                 ps.executeUpdate();
+            // Generar JSON después de eliminar
+            List<Usuario> usuarios = this.listar();
+            generarJson(usuarios);
             } catch (Exception e) {
             }
     }
+    
+    private void generarJson(List<Usuario> usuarios) throws IOException {
+        File file = new File("C:\\Users\\Microsoft\\Documents\\Programacion\\CaC\\proyecto\\TrenAlSur\\usuarios.json"); // Especifica la ruta completa
+        FileWriter writer = new FileWriter(file); // Sobrescribe el archivo si existe
+        
+        StringBuilder sb = new StringBuilder();
+        sb.append("[\n");
+        for (Usuario usuario : usuarios) {
+            sb.append("{\n");
+            sb.append("\"id\": ").append(usuario.getId()).append(",\n");
+            sb.append("\"nombre\": \"").append(usuario.getNombre()).append("\",\n");
+            sb.append("\"apellido\": \"").append(usuario.getApellido()).append("\",\n");
+            sb.append("\"email\": \"").append(usuario.getEmail()).append("\",\n");
+            sb.append("\"username\": \"").append(usuario.getUsername()).append("\",\n");
+            sb.append("\"password\": \"").append(usuario.getPassword()).append("\",\n");
+            sb.append("\"fechaNac\": \"").append(usuario.getFechaNac()).append("\",\n");
+            sb.append("\"pais\": \"").append(usuario.getPais()).append("\"\n");
+            sb.append("},\n");
+        }
+        sb.setLength(sb.length() - 2);
+        sb.append("\n]\n");
+        
+        writer.write(sb.toString());
+        writer.flush();
+        writer.close();
+    }
 }
+
 
 
