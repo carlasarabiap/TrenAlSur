@@ -5,7 +5,7 @@ import java.sql.DriverManager;
 
 public class Conexion {
     Connection con;
-    String url="jdbc:mysql://localhost:3306/trenNew";
+    String url="jdbc:mysql://localhost:3306/trenCaC";
     String user="root";
     String pass="";
     public Connection Conexion(){
